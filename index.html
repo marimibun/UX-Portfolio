@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malin | UX Designer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c;
+        }
+
+        .scrolling-wrapper {
+            animation: scroll 30s linear infinite;
+            width: 200%; /* Double the width to hold duplicated content */
+        }
+
+        .scrolling-item {
+            flex-shrink: 0;
+            margin-right: 2rem; /* Spacing between images */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-50">Malin</a>
+            <nav>
+                <ul class="flex space-x-6 font-medium">
+                    <li><a href="about-me.html" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">About</a></li>
+                    <li><a href="index.html#projects" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Projects</a></li>
+                    <li><a href="index.html#contact" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-gray-900 overflow-hidden min-h-screen flex items-center justify-center rounded-b-3xl text-center">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <!-- Replace 'https://placehold.co/1920x1080/4f46e5/ffffff?text=Hero+Image' with your image URL -->
+                <img src="https://placehold.co/1920x1080/4f46e5/ffffff?text=Hero+Image" alt="Abstract background" class="object-cover w-full h-full">
+                <!-- Overlay to make text readable -->
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-75"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 px-4 py-16 sm:py-24 max-w-4xl">
+                <div class="flex flex-col items-center text-center">
+                    <div class="flex-1">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4">
+                            Hi, I'm <span class="text-purple-400">Malin</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl md:text-2xl font-light text-gray-300 mb-8">
+                            I thrive to design impactful, digital experiences. As a UI/UX designer and pixel artist, I specialize in crafting products that are intuitive, delightful and easy to use.
+                        </p>
+                        <a href="#contact" class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105 shadow-lg">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scrolling Banner Section -->
+        <section class="py-16 overflow-x-hidden">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-50">Clients</h2>
+            <div class="scrolling-wrapper flex justify-center">
+                <!-- Duplicate the items to create the infinite scroll effect -->
+                <img src="https://placehold.co/200x200/5c3789/ffffff?text=Image+1" alt="Image 1" class="scrolling-item rounded-2xl">
+                <img src="https://placehold.co/200x200/6f4699/ffffff?text=Image+2" alt="Image 2" class="scrolling-item rounded-2xl">
+                <img src="https://placehold.co/200x200/8155a9/ffffff?text=Image+3" alt="Image 3" class="scrolling-item rounded-2xl">
+                <img src="https://placehold.co/200x200/9465b9/ffffff?text=Image+4" alt="Image 4" class="scrolling-item rounded-2xl">
+                <img src="https://placehold.co/200x200/a674c9/ffffff?text=Image+5" alt="Image 5" class="scrolling-item rounded-2xl">
+                <!-- Duplicates for seamless loop -->
+                <img src="https://placehold.co/200x200/5c3789/ffffff?text=Image+1" alt="Image 1" class="scrolling-item rounded-2xl">
+                <img src="https://placehold.co/200x200/6f4699/ffffff?text=Image+2" alt="Image 2" class="scrolling-item rounded-2xl">
+                <img src="https://placehold.co/200x200/8155a9/ffffff?text=Image+3" alt="Image 3" class="scrolling-item rounded-2xl">
+                <img src="https://placehold.co/200x200/9465b9/ffffff?text=Image+4" alt="Image 4" class="scrolling-item rounded-2xl">
+                <img src="https://placehold.co/200x200/a674c9/ffffff?text=Image+5" alt="Image 5" class="scrolling-item rounded-2xl">
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="text-4xl font-bold text-center text-gray-50 mb-12">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                    <!-- Project 1 -->
+                    <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
+                        <a href="project-details.html">
+                            <!-- Placeholder image for the project -->
+                            <img src="https://placehold.co/600x400/9333ea/ffffff?text=Your+Project+Image" alt="Lifeplanner" class="rounded-t-xl w-full">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-50 mb-2">Lifeplanner</h3>
+                                <p class="text-gray-400">UI/UX Design for a financial management app.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
+                        <a href="#">
+                             <!-- Placeholder image for the project -->
+                            <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Coming+soon" alt="Coming soon" class="rounded-t-xl w-full">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-50 mb-2">Coming soon</h3>
+                                <p class="text-gray-400">A new and improved project is in the works!</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
+                        <a href="#">
+                             <!-- Placeholder image for the project -->
+                            <img src="https://placehold.co/600x400/a855f7/ffffff?text=Coming+soon" alt="Coming soon" class="rounded-t-xl w-full">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-50 mb-2">Coming soon</h3>
+                                <p class="text-gray-400">Another project is currently under development.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section id="contact" class="py-16 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 max-w-2xl text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-50">Let's Connect</h2>
+                <p class="text-lg text-gray-400 mb-8">
+                    Interested in how I can help with your next project? Get in touch!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="mailto:your.email@example.com" class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105 shadow-lg">
+                        Email Me
+                    </a>
+                    <a href="#" class="bg-gray-700 text-gray-50 px-8 py-3 rounded-full font-semibold hover:bg-gray-600 transition-colors duration-300 transform hover:scale-105 shadow-lg">
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Malin. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
