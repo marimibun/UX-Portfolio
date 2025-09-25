@@ -6,11 +6,25 @@
     <title>Malin | UX Designer Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind colors to create a more cohesive color scheme
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                // Brighter, more purple-toned dark colors for a cohesive look
+                'dark-purple-100': '#2E283C',
+                'dark-purple-200': '#282334'
+              }
+            }
+          }
+        }
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #1a202c;
+            background-color: #2E283C; /* Using the new, brighter color */
         }
 
         .scrolling-wrapper {
@@ -38,12 +52,19 @@
         .btn-glow:hover {
             box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
         }
+
+        /* Custom style for the gradient divider */
+        .gradient-divider {
+            height: 2px;
+            background: linear-gradient(to right, #2E283C, #8b5cf6, #2E283C);
+            border: none;
+        }
     </style>
 </head>
 <body class="text-gray-200">
 
     <!-- Header & Navigation -->
-    <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+    <header class="bg-dark-purple-100 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="ux-portfolio-v2.html" class="text-2xl font-bold text-gray-50">Malin</a>
             <nav>
@@ -58,13 +79,13 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="relative bg-gray-900 overflow-hidden min-h-screen flex items-center justify-center rounded-b-3xl text-center">
+        <section class="relative bg-dark-purple-200 overflow-hidden min-h-screen flex items-center justify-center text-center">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
                 <!-- Replace 'https://placehold.co/1920x1080/4f46e5/ffffff?text=Hero+Image' with your image URL -->
                 <img src="https://plus.unsplash.com/premium_photo-1683133924436-a7afbdf8cd25?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abstract background" class="object-cover w-full h-full">
                 <!-- Overlay to make text readable -->
-                <div class="absolute inset-0 bg-gray-900 bg-opacity-75"></div>
+                <div class="absolute inset-0 bg-dark-purple-200 bg-opacity-75"></div>
             </div>
 
             <!-- Content -->
@@ -104,57 +125,77 @@
             </div>
         </section>
 
+        <!--
+            Choose one of the divider options below.
+            Option 1 is a gradient line, Option 2 is a line with text.
+            Uncomment the one you want to use.
+        -->
+
+        <!-- Option 1: Gradient Divider (Active by default) -->
+        <div class="container mx-auto px-4 max-w-6xl my-8">
+            <hr class="gradient-divider opacity-50">
+        </div>
+
+        <!--
+        Option 2: Text Divider (Uncomment to use)
+        <div class="relative flex items-center container mx-auto px-4 max-w-6xl my-8">
+            <div class="flex-grow border-t-2 border-purple-600 opacity-50"></div>
+            <span class="flex-shrink mx-4 text-purple-400 font-bold text-lg">My Work</span>
+            <div class="flex-grow border-t-2 border-purple-600 opacity-50"></div>
+        </div>
+        -->
+
         <!-- Projects Section -->
-        <section id="projects" class="py-16 sm:py-24 bg-gray-800 bg-radial-gradient">
+        <section id="projects" class="py-16 sm:py-24 bg-dark-purple-100 bg-radial-gradient">
             <div class="container mx-auto px-4 max-w-6xl">
                 <h2 class="text-4xl font-bold text-center text-gray-50 mb-12">Featured Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
 
                     <!-- Project 1 -->
-                    <div class="bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-                        <a href="project-details.html">
-                            <!-- Placeholder image for the project -->
-                            <img src="https://i.imgur.com/98RURQT.png" class="rounded-t-xl w-full">
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-50 mb-2">Lifeplanner</h3>
-                                <p class="text-gray-400">UI/UX Design for a task management app.</p>
-                                <div class="mt-4 text-sm font-semibold text-purple-400">Read Case Study &rarr;</div>
-                            </div>
-                        </a>
+                    <div class="bg-dark-purple-200 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
+                        <!-- Placeholder image for the project -->
+                        <img src="https://i.imgur.com/98RURQT.png" class="rounded-t-xl w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-50 mb-2">Lifeplanner</h3>
+                            <p class="text-gray-400">UI/UX Design for a task management app.</p>
+                            <a href="project-details.html" class="bg-purple-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105 shadow-lg mt-4 inline-block btn-glow">
+                                View Project
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-                        <a href="#">
-                             <!-- Placeholder image for the project -->
-                            <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Coming+soon" alt="Coming soon" class="rounded-t-xl w-full">
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-50 mb-2">Coming soon</h3>
-                                <p class="text-gray-400">A new and improved project is in the works!</p>
-                                <div class="mt-4 text-sm font-semibold text-purple-400">Read Case Study &rarr;</div>
-                            </div>
-                        </a>
+                    <div class="bg-dark-purple-200 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
+                        <!-- Placeholder image for the project -->
+                        <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Coming+soon" alt="Coming soon" class="rounded-t-xl w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-50 mb-2">Coming soon</h3>
+                            <p class="text-gray-400">A new and improved project is in the works!</p>
+                            <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105 shadow-lg mt-4 inline-block btn-glow">
+                                View Project
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-                        <a href="#">
-                             <!-- Placeholder image for the project -->
-                            <img src="https://placehold.co/600x400/a855f7/ffffff?text=Coming+soon" alt="Coming soon" class="rounded-t-xl w-full">
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-50 mb-2">Coming soon</h3>
-                                <p class="text-gray-400">Another project is currently under development.</p>
-                                <div class="mt-4 text-sm font-semibold text-purple-400">Read Case Study &rarr;</div>
-                            </div>
-                        </a>
-                    </div>
+                    <div class="bg-dark-purple-200 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
+                        <!-- Placeholder image for the project -->
+                        <img src="https://placehold.co/600x400/a855f7/ffffff?text=Coming+soon" alt="Coming soon" class="rounded-t-xl w-full">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-50 mb-2">Coming soon</h3>
+                            <p class="text-gray-400">Another project is currently under development.</p>
+                            <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105 shadow-lg mt-4 inline-block btn-glow">
+                                View Project
+                            </a>
+                        </div>
+                        </div>
 
                 </div>
             </div>
         </section>
 
         <!-- Call to Action -->
-        <section id="contact" class="py-16 sm:py-24 bg-gray-900">
+        <section id="contact" class="py-16 sm:py-24 bg-dark-purple-200">
             <div class="container mx-auto px-4 max-w-2xl text-center">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gray-50">Let's Connect</h2>
                 <p class="text-lg text-gray-400 mb-8">
@@ -177,7 +218,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8">
+    <footer class="bg-dark-purple-200 text-gray-400 py-8">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2023 Malin. All rights reserved.</p>
         </div>
