@@ -26,7 +26,12 @@
             font-family: 'Poppins', sans-serif;
             background-color: #2E283C;
         }
-        /* No custom CSS needed for the new image collage, using Tailwind flexbox classes instead. */
+
+        .tool-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body class="text-gray-200">
@@ -200,6 +205,53 @@
                     </div>
                 </div>
 
+                <!-- New Tools I Use Section -->
+                <div class="mt-16 text-center">
+                    <h2 class="text-4xl font-extrabold text-gray-50 mb-12">My Toolkit</h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+                        <!-- Tool 1: Figma -->
+                        <div class="bg-dark-purple-100 rounded-lg p-4 shadow-xl flex flex-col items-center justify-center transition-transform transform hover:scale-105">
+                            <img src="https://miro.medium.com/v2/resize:fit:1400/1*6XgfDCVn81AYX68Xvd2I-g@2x.png" class="tool-logo mb-2">
+                            <p class="text-lg font-semibold text-gray-300">Figma</p>
+                        </div>
+                        <!-- Tool 2: Photoshop -->
+                        <div class="bg-dark-purple-100 rounded-lg p-4 shadow-xl flex flex-col items-center justify-center transition-transform transform hover:scale-105">
+                            <img src="https://placehold.co/100x100/5c636f/ffffff?text=Ps" alt="Photoshop logo" class="tool-logo mb-2">
+                            <p class="text-lg font-semibold text-gray-300">Photoshop</p>
+                        </div>
+                        <!-- Tool 3: Canva -->
+                        <div class="bg-dark-purple-100 rounded-lg p-4 shadow-xl flex flex-col items-center justify-center transition-transform transform hover:scale-105">
+                            <img src="https://placehold.co/100x100/5c636f/ffffff?text=Canva" alt="Canva logo" class="tool-logo mb-2">
+                            <p class="text-lg font-semibold text-gray-300">Canva</p>
+                        </div>
+                        <!-- Tool 4: Adobe Illustrator -->
+                        <div class="bg-dark-purple-100 rounded-lg p-4 shadow-xl flex flex-col items-center justify-center transition-transform transform hover:scale-105">
+                            <img src="https://placehold.co/100x100/5c636f/ffffff?text=Ai" alt="Adobe Illustrator logo" class="tool-logo mb-2">
+                            <p class="text-lg font-semibold text-gray-300">Illustrator</p>
+                        </div>
+                        <!-- Tool 5: Miro -->
+                        <div class="bg-dark-purple-100 rounded-lg p-4 shadow-xl flex flex-col items-center justify-center transition-transform transform hover:scale-105">
+                            <img src="https://placehold.co/100x100/5c636f/ffffff?text=Miro" alt="Miro logo" class="tool-logo mb-2">
+                            <p class="text-lg font-semibold text-gray-300">Miro</p>
+                        </div>
+                        <!-- Tool 6: InVision -->
+                        <div class="bg-dark-purple-100 rounded-lg p-4 shadow-xl flex flex-col items-center justify-center transition-transform transform hover:scale-105">
+                            <img src="https://placehold.co/100x100/5c636f/ffffff?text=InV" alt="InVision logo" class="tool-logo mb-2">
+                            <p class="text-lg font-semibold text-gray-300">InVision</p>
+                        </div>
+                        <!-- Tool 7: Sketch -->
+                        <div class="bg-dark-purple-100 rounded-lg p-4 shadow-xl flex flex-col items-center justify-center transition-transform transform hover:scale-105">
+                            <img src="https://placehold.co/100x100/5c636f/ffffff?text=Sk" alt="Sketch logo" class="tool-logo mb-2">
+                            <p class="text-lg font-semibold text-gray-300">Sketch</p>
+                        </div>
+                        <!-- Tool 8: Balsamiq -->
+                        <div class="bg-dark-purple-100 rounded-lg p-4 shadow-xl flex flex-col items-center justify-center transition-transform transform hover:scale-105">
+                            <img src="https://placehold.co/100x100/5c636f/ffffff?text=Bal" alt="Balsamiq logo" class="tool-logo mb-2">
+                            <p class="text-lg font-semibold text-gray-300">Balsamiq</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Quote Section 1 -->
                 <div class="mt-16 bg-dark-purple-100 rounded-xl p-8 shadow-xl text-center max-w-4xl mx-auto">
                     <p class="text-xl lg:text-2xl font-medium text-gray-300 italic mb-4">
@@ -252,6 +304,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
