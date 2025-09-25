@@ -27,23 +27,37 @@
             background-color: #2E283C; /* Using the new, brighter color */
         }
 
-        .scrolling-wrapper {
-            animation: scroll 30s linear infinite;
-            width: 200%; /* Double the width to hold duplicated content */
+        /* Consistent size for client logos */
+        .client-logo {
+            width: 112px;
+            height: 112px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
         }
 
-        .scrolling-item {
-            flex-shrink: 0;
-            margin-right: 2rem; /* Spacing between images */
+        .client-logo:hover {
+            filter: grayscale(0%);
         }
 
+        /* Marquee animation for the trusted clients section */
         @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: scroll 40s linear infinite;
+        }
+
+        .marquee-container:hover .marquee {
+            animation-play-state: paused;
         }
 
         .btn-glow {
@@ -59,6 +73,7 @@
             background: linear-gradient(to right, #2E283C, #8b5cf6, #2E283C);
             border: none;
         }
+        
     </style>
 </head>
 <body class="text-gray-200">
@@ -106,22 +121,32 @@
             </div>
         </section>
 
-        <!-- Scrolling Banner Section -->
-        <section class="py-16 overflow-x-hidden">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-50">Clients</h2>
-            <div class="scrolling-wrapper flex justify-center">
-                <!-- Duplicate the items to create the infinite scroll effect -->
-                <img src="https://i.imgur.com/F2NuR2t.png" class="scrolling-item rounded-2xl">
-                <img src="https://i.imgur.com/FoIUCET.png" class="scrolling-item rounded-2xl">
-                <img src="https://placehold.co/200x200/8155a9/ffffff?text=Image+3" alt="Image 3" class="scrolling-item rounded-2xl">
-                <img src="https://placehold.co/200x200/9465b9/ffffff?text=Image+4" alt="Image 4" class="scrolling-item rounded-2xl">
-                <img src="https://placehold.co/200x200/a674c9/ffffff?text=Image+5" alt="Image 5" class="scrolling-item rounded-2xl">
-                <!-- Duplicates for seamless loop -->
-                <img src="https://i.imgur.com/F2NuR2t.png" class="scrolling-item rounded-2xl">
-                <img src="https://i.imgur.com/FoIUCET.png" alt="Image 2" class="scrolling-item rounded-2xl">
-                <img src="https://placehold.co/200x200/8155a9/ffffff?text=Image+3" alt="Image 3" class="scrolling-item rounded-2xl">
-                <img src="https://placehold.co/200x200/9465b9/ffffff?text=Image+4" alt="Image 4" class="scrolling-item rounded-2xl">
-                <img src="https://placehold.co/200x200/a674c9/ffffff?text=Image+5" alt="Image 5" class="scrolling-item rounded-2xl">
+        <!-- Clients By Section -->
+        <section class="py-16 bg-dark-purple-300">
+            <div class="container mx-auto px-4 text-center max-w-6xl">
+                <h2 class="text-2xl font-bold text-gray-400 mb-8">Clients</h2>
+                <div class="marquee-container">
+                    <!-- The content is duplicated to create a seamless loop -->
+                    <div class="marquee flex justify-around gap-12 sm:gap-16 items-center py-4">
+                        <img src="https://i.imgur.com/FoIUCET.png" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+B" alt="Client B logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+C" alt="Client C logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+D" alt="Client D logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+E" alt="Client E logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+F" alt="Client F logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+G" alt="Client G logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+H" alt="Client H logo" class="client-logo rounded-lg shadow-xl">
+                        <!-- Duplicated images for seamless loop -->
+                        <img src="https://i.imgur.com/FoIUCET.png" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+B" alt="Client B logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+C" alt="Client C logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+D" alt="Client D logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+E" alt="Client E logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+F" alt="Client F logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+G" alt="Client G logo" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://placehold.co/200x200/5c636f/ffffff?text=Client+H" alt="Client H logo" class="client-logo rounded-lg shadow-xl">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -212,10 +237,11 @@
     <!-- Footer -->
     <footer class="bg-dark-purple-200 text-gray-400 py-8">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2023 Malin. All rights reserved.</p>
+            <p>&copy; 2025 Malin. All rights reserved.</p>
         </div>
     </footer>
 </body>
 </html>
+
 
 
