@@ -21,6 +21,8 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+        
+        /* Default Body (Dark Theme) - Now the only theme */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #2E283C; 
@@ -72,7 +74,18 @@
             background: linear-gradient(to right, #2E283C, #8b5cf6, #2E283C);
             border: none;
         }
-        
+        /* START: Typewriter Cursor Style */
+        .typing-cursor {
+            border-right: 4px solid #8b5cf6; /* Tailwind purple-500 */
+            /* Add animation for the blinking effect */
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #8b5cf6 }
+        }
+        /* END: Typewriter Cursor Style */
     </style>
 </head>
 <body class="text-gray-200">
@@ -81,7 +94,7 @@
     <header class="bg-dark-purple-100 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             
-            <!-- UPDATED: Logo and Name Integration -->
+            <!-- Logo and Name Integration -->
             <a href="index.html" class="flex items-center space-x-3 text-2xl font-bold text-gray-50 group">
                 <img 
                     class="h-8 w-8 rounded-full ring-2 ring-purple-400 p-0.5 object-cover transition duration-300 group-hover:ring-purple-300" 
@@ -91,8 +104,8 @@
                 <span>Malin Bergfjord</span>
             </a>
             
-            <nav>
-                <ul class="flex space-x-6 font-medium">
+            <nav class="flex items-center">
+                <ul class="flex space-x-6 font-medium mr-4">
                     <li><a href="about-me.html" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">About</a></li>
                     <li><a href="index.html#projects" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Projects</a></li>
                     <li><a href="index.html#contact" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Contact</a></li>
@@ -115,9 +128,13 @@
             <div class="relative z-10 px-4 py-16 sm:py-24 max-w-4xl">
                 <div class="flex flex-col items-center text-center">
                     <div class="flex-1">
+                        <!-- START: Typewriter HTML Integration -->
                         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4">
-                            Hi, I'm <span class="text-purple-400">Malin</span>
+                            Hi, I'm <span class="text-purple-400">Malin</span>, a
+                            <!-- This span holds the text that will be typed and deleted -->
+                            <span id="typewriter-target" class="inline-block min-w-[250px] font-bold"></span>
                         </h1>
+                        <!-- END: Typewriter HTML Integration -->
                         <p class="text-lg sm:text-xl md:text-2xl font-light text-gray-300 mb-8">
                             I thrive to design impactful, digital experiences. As a UI/UX designer and pixel artist, I specialize in crafting products that are intuitive, delightful and easy to use.
                         </p>
@@ -130,7 +147,7 @@
         </section>
 
         <!-- Clients By Section -->
-        <section class="py-16 bg-dark-purple-300">
+        <section class="py-16 bg-dark-purple-200">
             <div class="container mx-auto px-4 text-center max-w-6xl">
                 <h2 class="text-2xl font-bold text-gray-400 mb-8">Clients</h2>
                 <div class="marquee-container">
@@ -141,7 +158,7 @@
                         <img src="https://static1.squarespace.com/static/64a073a19f1d4a3f5d1555e0/t/65b4b473332baa385ebbfed4/1706341491881/Logo+-+White.png?format=1500w" class="client-logo rounded-lg shadow-xl">
                         <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2114330/extras/Honeymancer_Logo_PixelArt.png?t=1744296699" class="client-logo rounded-lg shadow-xl">
                         <img src="https://futuregames.se/wp-content/uploads/2025/01/futuregames.png" class="client-logo rounded-lg shadow-xl">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZEEKgTSIQIxwWQK6dfHgZ9AGyvxF7DopEcA&s" class="client-logo rounded-lg shadow-xl">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZEEKgTSIQIxwWQK6dfHgZ9AGyVxF7DopEcA&s" class="client-logo rounded-lg shadow-xl">
                         <!-- Duplicated images for seamless loop -->
                         <img src="https://i.imgur.com/FoIUCET.png" class="client-logo rounded-lg shadow-xl">
                         <img src="https://i.imgur.com/F2NuR2t.png" class="client-logo rounded-lg shadow-xl">
@@ -227,13 +244,6 @@
         </section>
     </main>
 <!-- START: Scroll To Top Button Code -->
-    <!-- 
-        This is the button element itself.
-        - 'fixed bottom-6 right-6' positions it in the bottom right corner.
-        - 'opacity-0' and 'pointer-events: none' are set initially via inline style
-          to hide and disable it until the user starts scrolling.
-        - 'transition-opacity duration-300' ensures a smooth fade in/out.
-    -->
     <button id="scrollToTopBtn" 
             class="fixed bottom-6 right-6 z-50 p-3 bg-purple-600 text-white rounded-full shadow-2xl 
                    opacity-0 transition-opacity duration-300 transform hover:scale-110 btn-glow 
@@ -250,34 +260,88 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Get the button element
+            
+            // ======================================
+            // 1. SCROLL TO TOP LOGIC
+            // ======================================
             const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-            // 2. Logic to show/hide the button on scroll
             const scrollFunction = () => {
-                // Check if the user has scrolled past 300 pixels (a reasonable threshold)
                 if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                    // Show button: set opacity to 1 and enable clicks
                     scrollToTopBtn.style.opacity = '1';
                     scrollToTopBtn.style.pointerEvents = 'auto';
                 } else {
-                    // Hide button: set opacity to 0 and disable clicks
                     scrollToTopBtn.style.opacity = '0';
                     scrollToTopBtn.style.pointerEvents = 'none';
                 }
             };
 
-            // 3. Logic for the smooth scroll action when clicked
             const topFunction = () => {
                 window.scrollTo({
                     top: 0,
-                    behavior: 'smooth' // This CSS property makes the scroll smooth!
+                    behavior: 'smooth'
                 });
             };
 
-            // 4. Attach event listeners
-            window.onscroll = scrollFunction; // Run 'scrollFunction' every time the window is scrolled
-            scrollToTopBtn.addEventListener('click', topFunction); // Run 'topFunction' when the button is clicked
+            window.onscroll = scrollFunction;
+            scrollToTopBtn.addEventListener('click', topFunction);
+            
+            // ======================================
+            // 2. TYPEWRITER EFFECT LOGIC
+            // ======================================
+            const typewriterTarget = document.getElementById('typewriter-target');
+            
+            // --- EDIT THIS ARRAY TO CHANGE THE WORDS THE TYPEWRITER CYCLES THROUGH ---
+            const phrases = ["UX Designer", "Pixel Artist", "Freelance Artist", "Product Designer", "Experience Designer"];
+            
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            
+            // Set speeds (in milliseconds)
+            const typingSpeed = 100;
+            const deletingSpeed = 50;
+            const pauseTime = 1500; 
+
+            if (typewriterTarget) {
+                // Add the CSS class to show the blinking cursor
+                typewriterTarget.classList.add('typing-cursor');
+            }
+
+            function type() {
+                if (!typewriterTarget) return; // Guard against missing element
+                
+                const currentPhrase = phrases[phraseIndex];
+                
+                if (!isDeleting) {
+                    // Typing forward: append one character
+                    if (charIndex < currentPhrase.length) {
+                        typewriterTarget.textContent += currentPhrase.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(type, typingSpeed);
+                    } else {
+                        // Finished typing, start deleting after a pause
+                        isDeleting = true;
+                        setTimeout(type, pauseTime);
+                    }
+                } else {
+                    // Deleting: remove one character
+                    if (charIndex > 0) {
+                        typewriterTarget.textContent = currentPhrase.substring(0, charIndex - 1);
+                        charIndex--;
+                        setTimeout(type, deletingSpeed);
+                    } else {
+                        // Finished deleting, move to the next phrase
+                        isDeleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        setTimeout(type, typingSpeed); // Start typing next phrase
+                    }
+                }
+            }
+
+            // Start the typewriter effect
+            setTimeout(type, 500);
+            // ======================================
         });
     </script>
     <!-- Footer -->
@@ -288,18 +352,3 @@
     </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
