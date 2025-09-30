@@ -287,7 +287,60 @@
             </div>
         </section>
     </main>
+<!-- START: Scroll To Top Button Code -->
+    <!-- 
+        This is the button element itself.
+        - 'fixed bottom-6 right-6' positions it in the bottom right corner.
+        - 'opacity-0' and 'pointer-events: none' are set initially via inline style
+          to hide and disable it until the user starts scrolling.
+        - 'transition-opacity duration-300' ensures a smooth fade in/out.
+    -->
+    <button id="scrollToTopBtn" 
+            class="fixed bottom-6 right-6 z-50 p-3 bg-purple-600 text-white rounded-full shadow-2xl 
+                   opacity-0 transition-opacity duration-300 transform hover:scale-110 btn-glow 
+                   focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50" 
+            aria-label="Return to top" 
+            style="pointer-events: none;">
+        <!-- Arrow up icon (SVG for modern, clean look) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up">
+            <path d="m5 12 7-7 7 7"/>
+            <path d="M12 19V5"/>
+        </svg>
+    </button>
+    <!-- END: Scroll To Top Button Code -->
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Get the button element
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            // 2. Logic to show/hide the button on scroll
+            const scrollFunction = () => {
+                // Check if the user has scrolled past 300 pixels (a reasonable threshold)
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    // Show button: set opacity to 1 and enable clicks
+                    scrollToTopBtn.style.opacity = '1';
+                    scrollToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    // Hide button: set opacity to 0 and disable clicks
+                    scrollToTopBtn.style.opacity = '0';
+                    scrollToTopBtn.style.pointerEvents = 'none';
+                }
+            };
+
+            // 3. Logic for the smooth scroll action when clicked
+            const topFunction = () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // This CSS property makes the scroll smooth!
+                });
+            };
+
+            // 4. Attach event listeners
+            window.onscroll = scrollFunction; // Run 'scrollFunction' every time the window is scrolled
+            scrollToTopBtn.addEventListener('click', topFunction); // Run 'topFunction' when the button is clicked
+        });
+    </script>
     <!-- Footer -->
     <footer class="bg-dark-purple-200 text-gray-400 py-8">
         <div class="container mx-auto px-4 text-center">
@@ -296,6 +349,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
